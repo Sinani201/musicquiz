@@ -1,0 +1,20 @@
+#showhide {
+	display: none;
+	cursor: pointer;
+}
+
+#selectallnone {
+	display: none;
+}
+
+#playsong {
+	display: none;
+}
+
+#reveal {
+	display: none;
+}
+
+#replay {
+	display: none;
+}

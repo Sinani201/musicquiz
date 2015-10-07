@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+<meta charset="UTF-8">
+
+<title>Music Quiz</title>
+
+<link rel="stylesheet" href="site.css" type="text/css" media="screen" />
+
+<script type="text/javascript" src="site.js"></script>
+</head>
+
+<body>
+	<h1>Music Quiz</h1>
+	<div id="helptext">To start, press the browse button and select all the music files to test from.</div>
+	<span id="showhide">Hide song list</span>
+	<div id="song-selector">
+		<input type="file" id="files" name="files[]" multiple />
+		<div id="selectallnone">
+			<button id="selectall">Select all</button>
+			<button id="selectnone">Select none</button>
+		</div>
+		<table id="songlist"></table>
+	</div>
+	<div id="controls">
+		<button id="playsong">Play random snippet</button>
+		<button id="reveal">Reveal song name</button>
+		<button id="replay">Replay snippet</button>
+		<div id="songname"></div>
+		<audio id="player">Your browser does not support the <code>audio</code> audio element.</audio>
+	</div>
+</body>
+</html>
