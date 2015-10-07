@@ -92,7 +92,6 @@ window.onload = function () {
 	document.getElementById("player").addEventListener("durationchange", function () {
 		this.currentTime = Math.floor(Math.random() * (this.duration - 15));
 		this.startedTime = this.currentTime;
-		console.log(this.currentTime);
 	}, false);
 
 	document.getElementById("player").addEventListener("timeupdate", function () {
