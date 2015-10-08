@@ -28,6 +28,7 @@
 	border: 2px dashed #555;
 	border-radius: 7px;
 	cursor: default;
+	max-width: 500px;
 }
 
 #dragbox.hover {
