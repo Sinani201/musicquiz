@@ -6,12 +6,30 @@ function removeChildren(parent) {
 	}
 }
 
+function handleDragOver(evt) {
+	evt.stopPropagation();
+	evt.preventDefault();
+	if (evt.dataTransfer) {
+		evt.dataTransfer.dropEffect = "copy";
+	}
+	var dragbox = document.getElementById("dragbox");
+	if (evt.type === "dragover") {
+		dragbox.classList.add("hover");
+	} else {
+		dragbox.classList.remove("hover");
+	}
+}
+
 function handleFileSelect(evt) {
+	handleDragOver(evt);
+
 	var files = evt.target.files;
+	if (!files || files.length === 0) {
+		files = evt.dataTransfer.files;
+	}
 
 	var div_songlist = document.getElementById("songlist");
 
-	removeChildren(div_songlist);
 	for (var i = 0; i < files.length; i++) {
 		var tr = document.createElement("tr");
 		tr.songfile = files[i];
@@ -50,20 +68,20 @@ function replaySongSnippet() {
 	player.play();
 }
 
+function uploadedFirstFile() {
+	document.getElementById("showhide").style.display = "block";
+	document.getElementById("selectallnone").style.display = "block";
+	document.getElementById("playsong").style.display = "block";
+}
+
 window.onload = function () {
 	if (window.File && window.FileReader && window.FileList && window.Blob) {
+		document.getElementById("files").addEventListener('change', uploadedFirstFile, false);
 		document.getElementById("files").addEventListener('change', handleFileSelect, false);
-
-		document.getElementById("files").addEventListener('change', function () {
-			document.getElementById("helptext").style.display = "none";
-			document.getElementById("showhide").style.display = "block";
-			document.getElementById("selectallnone").style.display = "block";
-			document.getElementById("playsong").style.display = "block";
-		}, false);
 	}
 
 	document.getElementById("showhide").onclick = function () {
-		songSelector = document.getElementById("song-selector");
+		var songSelector = document.getElementById("song-selector");
 		if (songSelector.style.display === "none") {
 			songSelector.style.display = "block";
 			this.innerHTML = "Hide song list"
@@ -72,6 +90,13 @@ window.onload = function () {
 			this.innerHTML = "Show song list"
 		}
 	}
+
+	// drag and drop files into the song-selector div
+	var songSelector = document.getElementById("song-selector");
+	songSelector.addEventListener('dragover', handleDragOver, false);
+	songSelector.addEventListener('dragleave', handleDragOver, false);
+	songSelector.addEventListener('drop', uploadedFirstFile, false);
+	songSelector.addEventListener('drop', handleFileSelect, false);
 
 	// check every box
 	document.getElementById("selectall").onclick = function () {
