@@ -1,3 +1,10 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+	margin-left: 2em;
+	background: #3498db;
+	color: #fff;
+}
+	
 #showhide {
 	display: none;
 	cursor: pointer;
@@ -24,16 +31,33 @@
 	text-align: center;
 	padding: 1em 0;
 	margin: 1em 0;
-	color: #555;
-	border: 2px dashed #555;
+	color: #ecf0f1;
+	border: 2px dashed #ecf0f1;
 	border-radius: 7px;
 	cursor: default;
 	max-width: 500px;
 }
 
 #dragbox.hover {
-	color: #f00;
-	border-color: #f00;
+	color: #2ecc71
+	border-color: #2ecc71
 	border-style: solid;
 	box-shadow: inset 0 3px 4px #888;
+}
+
+#songlist {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	border-radius: 5px;
+	padding: 15px;
+
+	background: #ecf0f1;
+	color: #000;
+}
+#songlist input[type=checkbox] {
+	margin-right: 1em;
+}
+
+footer {
+	margin-top: 1.5em;
 }
