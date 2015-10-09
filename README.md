@@ -2,4 +2,4 @@ MusicQuiz is a very simple Javascript app that lets you test yourself on the nam
 
 Made for UC Berkeley's Music 27 course.
 
-To use it, just visit https://sinani201.github.io/musicquiz/
+To use it, just visit http://dkess.me/musicquiz
