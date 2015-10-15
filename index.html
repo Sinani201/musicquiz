@@ -13,6 +13,13 @@
 
 <body>
 	<h1>Music Quiz</h1>
+	<div id="controls">
+		<button id="playsong">Play random snippet</button>
+		<button id="reveal">Reveal song name</button>
+		<button id="replay">Replay snippet</button>
+		<div id="songname"></div>
+		<audio id="player">Your browser does not support the <code>audio</code> audio element.</audio>
+	</div>
 	<span id="showhide">Hide song list</span>
 	<div id="song-selector">
 		<input type="file" id="files" name="files[]" multiple />
@@ -22,13 +29,6 @@
 			<button id="selectnone">Select none</button>
 		</div>
 		<table id="songlist"></table>
-	</div>
-	<div id="controls">
-		<button id="playsong">Play random snippet</button>
-		<button id="reveal">Reveal song name</button>
-		<button id="replay">Replay snippet</button>
-		<div id="songname"></div>
-		<audio id="player">Your browser does not support the <code>audio</code> audio element.</audio>
 	</div>
 	<footer>Made with ♡ by Daniel Kessler for Berkeley's Music 27 course. <a href="https://github.com/dkess/musicquiz">Fork me on GitHub!</a></footer>
 </body>

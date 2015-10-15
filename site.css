@@ -4,7 +4,11 @@ body {
 	background: #3498db;
 	color: #fff;
 }
-	
+
+#controls {
+	margin-bottom: 2em;
+}
+
 #showhide {
 	display: none;
 	cursor: pointer;
