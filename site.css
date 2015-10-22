@@ -22,6 +22,10 @@ body {
 	display: none;
 }
 
+#playsong, #reveal {
+	width: 12em;
+}
+
 #reveal {
 	display: none;
 }
