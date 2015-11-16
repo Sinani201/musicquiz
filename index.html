@@ -27,7 +27,14 @@
 		<div id="selectallnone">
 			<button id="selectall">Select all</button>
 			<button id="selectnone">Select none</button>
-			<label><input id="check-groupsongs" type="checkbox">Group song names by single-letter suffixes</label>
+			<label><input id="check-groupsongs" type="checkbox">Group song names by single-letter suffixes</label> <label class="collapse" for="_grouphelp">[?]</label><input id="_grouphelp" type="checkbox" autocomplete="off">
+			<div id="grouphelp">Using the "group" option will group songs with similar names into one song for the purposes of random selection. For example, all of the following song file names would be treated the same:
+				<ul>
+					<li>Beethoven - Symphony No 5 a.wav</li>
+					<li>Beethoven - Symphony No 5 b.wav</li>
+					<li>Beethoven - Symphony No 5 c.wav</li>
+				</ul>
+			</div>
 		</div>
 		<table id="songlist"></table>
 	</div>

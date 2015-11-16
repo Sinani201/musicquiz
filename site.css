@@ -14,6 +14,24 @@ body {
 	cursor: pointer;
 }
 
+.collapse {
+	cursor: pointer;
+	text-decoration: underline;
+	color: lightgray;
+}
+
+.collapse + input {
+	display: none;
+}
+
+.collapse + input + * {
+	display: none;
+}
+
+.collapse + input:checked + * {
+	display: block;
+}
+
 #selectallnone {
 	display: none;
 }
@@ -32,6 +50,12 @@ body {
 
 #replay {
 	display: none;
+}
+
+#grouphelp {
+	margin-left: 7em;
+	margin-top: 1em;
+	max-width: 30em;
 }
 
 #dragbox {
