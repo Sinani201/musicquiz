@@ -127,14 +127,41 @@ window.onload = function () {
 
 	document.getElementById("playsong").onclick = function () {
 		var div_songlist_c = document.getElementById("songlist").children;
-		var songfiles = [];
-		for (var i = 0; i < div_songlist_c.length; i++) {
-			if (div_songlist_c[i].children[0].children[0].children[0].checked) {
-				songfiles.push(div_songlist_c[i].songfile);
-			}
-		}
 
-		var song = songfiles[Math.floor(Math.random()*songfiles.length)];
+		var song;
+
+		if (document.getElementById("check-groupsongs").checked) {
+			var bigsongs = [];
+			for (var i = 0; i < div_songlist_c.length; i++) {
+				if (div_songlist_c[i].children[0].children[0].children[0].checked) {
+					var songfile = div_songlist_c[i].songfile;
+					var whereIsDot = songfile.name.lastIndexOf(".");
+					if (songfile.name[whereIsDot-2] === " ") {
+						var realname = songfile.name.slice(0, whereIsDot-2);
+					} else {
+						var realname = songfile.name.slice(0, whereIsDot);
+					}
+					if (realname in bigsongs) {
+						bigsongs[realname].push(songfile);
+					} else {
+						bigsongs[realname] = [songfile];
+					}
+				}
+			}
+
+			var songnames = Object.keys(bigsongs);
+			var smallsongs = bigsongs[songnames[ songnames.length * Math.random() << 0]];
+			song = smallsongs[Math.floor(Math.random()*smallsongs.length)];
+		} else {
+			var songfiles = [];
+			for (var i = 0; i < div_songlist_c.length; i++) {
+				if (div_songlist_c[i].children[0].children[0].children[0].checked) {
+					songfiles.push(div_songlist_c[i].songfile);
+				}
+			}
+
+			song = songfiles[Math.floor(Math.random()*songfiles.length)];
+		}
 		initSongSnippet(song);
 
 		this.style.display = "none";
